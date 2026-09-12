@@ -30,8 +30,8 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .live-label{color:var(--red);font-weight:900;font-size:13px;letter-spacing:1px;flex-shrink:0;background:rgba(239,68,68,0.15);padding:6px 12px;border-radius:8px;}
 .live-items{display:flex;gap:8px;animation:scroll-live 40s linear infinite;align-items:center;}
 @keyframes scroll-live{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.live-item{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
-.live-item img{width:32px;height:32px;object-fit:contain;}
+.live-item{flex-shrink:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;}
+.live-item img{width:40px;height:40px;object-fit:contain;}
 
 .page{display:none;}
 .page.active{display:block;}
@@ -41,8 +41,9 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .case-card{background:linear-gradient(145deg,#1e2536,#151a24);border-radius:22px;padding:20px 14px 16px;cursor:pointer;border:1px solid var(--border2);position:relative;overflow:hidden;transition:transform 0.15s;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
 .case-card:active{transform:scale(0.96);}
 .case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(circle at 50% 30%, var(--case-color, #5865F2), transparent 70%);opacity:0.22;pointer-events:none;}
+.case-card-img{width:100px;height:100px;object-fit:contain;position:relative;z-index:1;margin-top:6px;filter:drop-shadow(0 8px 20px var(--case-color, rgba(88,101,242,0.6)));}
 .case-card-emoji{font-size:78px;line-height:1;position:relative;z-index:1;margin-top:8px;filter:drop-shadow(0 8px 20px var(--case-color, rgba(88,101,242,0.6)));}
-.case-card-name{font-size:17px;font-weight:900;letter-spacing:-0.3px;position:relative;z-index:1;margin-top:12px;}
+.case-card-name{font-size:17px;font-weight:900;letter-spacing:-0.3px;position:relative;z-index:1;margin-top:10px;}
 .case-card-price{background:rgba(255,204,0,0.12);color:var(--accent);padding:8px 16px;border-radius:14px;font-size:15px;font-weight:900;display:flex;align-items:center;gap:6px;position:relative;z-index:1;margin-top:auto;border:1px solid rgba(255,204,0,0.2);}
 .case-card-price.free{background:rgba(16,185,129,0.15);color:var(--green);border-color:rgba(16,185,129,0.3);}
 
@@ -55,8 +56,9 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .roulette{overflow:hidden;position:relative;padding:20px 0;}
 .roulette-track{display:flex;gap:12px;will-change:transform;}
 .roulette-track.animate{transition:transform 4s cubic-bezier(0.15, 0.9, 0.3, 1);}
-.roulette-item{width:100px;height:130px;flex-shrink:0;background:rgba(255,255,255,0.05);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:2px solid transparent;padding:8px 4px;overflow:hidden;}
-.roulette-item .it-img{width:60px;height:60px;object-fit:contain;flex-shrink:0;}
+.roulette-item{width:100px;height:130px;flex-shrink:0;background:rgba(255,255,255,0.05);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:2px solid transparent;padding:8px 4px;overflow:hidden;position:relative;}
+.roulette-item .it-img{width:70px;height:70px;object-fit:contain;flex-shrink:0;}
+.roulette-item .it-emoji-fallback{font-size:56px;line-height:1;display:flex;align-items:center;justify-content:center;width:70px;height:70px;}
 .roulette-item .it-name{font-size:9px;color:var(--text-dim);text-align:center;padding:0 4px;font-weight:700;line-height:1.15;}
 .roulette-item.rarity-common{border-color:rgba(139,149,165,0.3);}
 .roulette-item.rarity-rare{border-color:rgba(59,130,246,0.5);background:rgba(59,130,246,0.08);}
@@ -74,7 +76,8 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .items-list-title{font-size:18px;font-weight:900;padding:28px 18px 12px;}
 .items-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 14px 24px;}
 .item-card{background:linear-gradient(145deg,#1a2030,#0f1520);border-radius:14px;padding:12px 6px;text-align:center;border:1px solid var(--border);}
-.item-card .it-img{width:56px;height:56px;object-fit:contain;display:block;margin:0 auto 8px;}
+.item-card .it-img{width:60px;height:60px;object-fit:contain;display:block;margin:0 auto 8px;}
+.item-card .it-emoji-fallback{font-size:48px;line-height:1;display:block;margin:6px auto 8px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;}
 .item-card .it-name{font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.2;}
 .item-card .it-value{font-size:12px;font-weight:900;}
 
@@ -97,7 +100,8 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .inventory-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 14px 20px;}
 .inv-card{background:linear-gradient(145deg,#1a2030,#0f1520);border-radius:16px;padding:14px 12px;text-align:center;border:1px solid var(--border2);position:relative;overflow:hidden;}
 .inv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--rarity-color,#888);}
-.inv-card .it-img{width:64px;height:64px;object-fit:contain;display:block;margin:8px auto 10px;}
+.inv-card .it-img{width:70px;height:70px;object-fit:contain;display:block;margin:8px auto 10px;}
+.inv-card .it-emoji-fallback{font-size:52px;line-height:1;display:block;margin:12px auto 10px;width:70px;height:70px;display:flex;align-items:center;justify-content:center;}
 .inv-card .it-name{font-size:13px;font-weight:800;margin-bottom:4px;line-height:1.2;}
 .inv-card .it-rarity{font-size:10px;font-weight:900;color:var(--rarity-color,#888);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px;}
 .inv-card .it-value{font-size:14px;color:var(--accent);font-weight:900;margin-bottom:12px;}
@@ -105,14 +109,14 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .inv-card .sell-btn:active{background:var(--green);color:#fff;border-color:var(--green);}
 .empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--text-dim);font-size:14px;}
 
-/* UPGRADE */
 .upgrade-block{margin:14px;background:linear-gradient(145deg,#1a2030,#0f1520);border-radius:20px;padding:20px;border:1px solid var(--border2);}
 .upgrade-title{font-size:18px;font-weight:900;margin-bottom:14px;text-align:center;}
 .upgrade-items{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
-.upgrade-slot{background:var(--bg3);border-radius:14px;padding:14px;text-align:center;border:2px dashed var(--border2);min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;}
+.upgrade-slot{background:var(--bg3);border-radius:14px;padding:14px;text-align:center;border:2px dashed var(--border2);min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;}
 .upgrade-slot.filled{border-style:solid;border-color:var(--accent);}
 .upgrade-slot .slot-label{font-size:11px;color:var(--text-dim);font-weight:800;margin-bottom:8px;text-transform:uppercase;}
-.upgrade-slot .it-img{width:60px;height:60px;object-fit:contain;}
+.upgrade-slot .it-img{width:70px;height:70px;object-fit:contain;}
+.upgrade-slot .it-emoji-fallback{font-size:56px;line-height:1;width:70px;height:70px;display:flex;align-items:center;justify-content:center;}
 .upgrade-slot .it-name{font-size:12px;font-weight:800;margin-top:6px;}
 .upgrade-slot .it-value{font-size:12px;color:var(--accent);font-weight:900;margin-top:3px;}
 .upgrade-chance{text-align:center;font-size:15px;font-weight:900;margin:14px 0;padding:12px;background:var(--bg3);border-radius:12px;border:1px solid var(--border2);}
@@ -128,7 +132,8 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .modal.show{display:flex;}
 .modal-content{background:linear-gradient(145deg,#1e2536,#0f1520);border-radius:28px;padding:32px 24px;max-width:360px;width:100%;text-align:center;border:2px solid var(--accent);animation:modal-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);max-height:80vh;overflow-y:auto;}
 @keyframes modal-in{from{opacity:0;transform:scale(0.7);}to{opacity:1;transform:scale(1);}}
-.modal-img{width:120px;height:120px;object-fit:contain;margin-bottom:12px;animation:emoji-pop 0.6s ease;}
+.modal-img{width:140px;height:140px;object-fit:contain;margin-bottom:12px;animation:emoji-pop 0.6s ease;}
+.modal-emoji-fallback{font-size:110px;line-height:1;margin-bottom:12px;width:140px;height:140px;display:inline-flex;align-items:center;justify-content:center;animation:emoji-pop 0.6s ease;}
 @keyframes emoji-pop{0%{transform:scale(0.2) rotate(-30deg);}60%{transform:scale(1.3) rotate(10deg);}100%{transform:scale(1) rotate(0);}}
 .modal-title{font-size:24px;font-weight:900;margin-bottom:10px;}
 .modal-rarity{font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;}
@@ -143,8 +148,8 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 .picker-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;max-height:400px;overflow-y:auto;}
 .picker-item{background:var(--bg3);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all 0.15s;}
 .picker-item:active{transform:scale(0.96);}
-.picker-item.selected{border-color:var(--accent);background:rgba(255,204,0,0.1);}
-.picker-item .it-img{width:50px;height:50px;object-fit:contain;margin-bottom:6px;}
+.picker-item .it-img{width:56px;height:56px;object-fit:contain;margin-bottom:6px;}
+.picker-item .it-emoji-fallback{font-size:44px;line-height:1;width:56px;height:56px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;}
 .picker-item .it-name{font-size:11px;font-weight:800;line-height:1.2;}
 .picker-item .it-value{font-size:11px;color:var(--accent);font-weight:900;margin-top:3px;}
 </style>
@@ -171,13 +176,11 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
   <div class="live-items" id="live-items"></div>
 </div>
 
-<!-- INDEX -->
 <div class="page active" id="page-index">
   <h1 class="page-title">Кейсы</h1>
   <div class="cases-grid" id="cases-grid"></div>
 </div>
 
-<!-- CASE -->
 <div class="page" id="page-case">
   <div class="case-header">
     <button class="back-btn" onclick="showPage('index')">←</button>
@@ -196,7 +199,6 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
   <div class="items-grid" id="items-grid"></div>
 </div>
 
-<!-- PROFILE -->
 <div class="page" id="page-profile">
   <div class="case-header">
     <button class="back-btn" onclick="showPage('index')">←</button>
@@ -224,14 +226,13 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
   <div class="inventory-grid" id="inventory-grid"></div>
 </div>
 
-<!-- UPGRADE -->
 <div class="page" id="page-upgrade">
   <div class="case-header">
     <button class="back-btn" onclick="showPage('index')">←</button>
     <div class="case-title">Апгрейд</div>
   </div>
   <div class="upgrade-block">
-    <div class="upgrade-title">Выбери свой предмет</div>
+    <div class="upgrade-title">Выбери предметы</div>
     <div class="upgrade-items">
       <div class="upgrade-slot" id="upgrade-slot1" onclick="pickUpgradeItem(1)"><div class="slot-label">Твой</div></div>
       <div class="upgrade-slot" id="upgrade-slot2" onclick="pickUpgradeItem(2)"><div class="slot-label">Цель</div></div>
@@ -264,136 +265,101 @@ body{padding-bottom:100px;background:radial-gradient(ellipse at top, rgba(59,130
 
 <script>
 // ==========================================
-// КАРТИНКИ (Twitter Twemoji CDN)
+// NFT КАРТИНКИ (nft.fragment.com)
 // ==========================================
-var IMG = {
-  bear:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f43b.png',
-  star:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2b50.png',
-  gift:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f380.png',
-  lamp:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3ee.png',
-  pen:     'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f58a.png',
-  doll:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png',
-  mask:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3ad.png',
-  crown:   'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f451.png',
-  ring:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f48d.png',
-  diamond: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f48e.png',
-  happyBear:'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f43b.png',
-  angel:   'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f607.png',
-  lion:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f981.png',
-  panda:   'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f43c.png',
-  joy:     'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f579.png',
-  gamepad: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3ae.png',
-  vr:      'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f97d.png',
-  sparkles:'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2728.png',
-  cd:      'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bf.png',
-  backpack:'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f392.png',
-  butterfly:'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f98b.png',
-  rocket:  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f680.png',
-  babyAngel:'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f47c.png',
-  cloud:   'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2601.png',
-  skull:   'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f480.png',
-  potion:  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9ea.png',
-  pirate:  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3f4-200d-2620-fe0f.png',
-  genie:   'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9de.png',
-  watch:   'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/231a.png',
-  jar:     'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1fad9.png',
-  genieKing:'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9de-200d-2642-fe0f.png',
-  vial:    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9ea.png',
-  box:     'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4e6.png',
-  ufc:     'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f94a.png',
-  rainbow: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f308.png',
-  ice:     'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2744.png'
+var NFT = function(slug, num){
+  return 'https://nft.fragment.com/gift/' + slug + '-' + num + '.webp';
 };
 
 // ==========================================
-// КЕЙСЫ
+// КЕЙСЫ (8 штук, цены подняты)
 // ==========================================
 var CASES = {
   free: {
-    name: 'Бесплатно', emoji: '🎁', price: 0, color: '#5865F2',
+    name: 'Free', emoji: '🎁', price: 0, color: '#5865F2',
     items: [
-      {name:'Медведь', img:IMG.bear, value:50, rarity:'common', weight:500},
-      {name:'Звезда', img:IMG.star, value:150, rarity:'rare', weight:300},
-      {name:'Подарок', img:IMG.gift, value:500, rarity:'epic', weight:150},
-      {name:'Лампа', img:IMG.lamp, value:2000, rarity:'legendary', weight:45},
-      {name:'Ручка', img:IMG.pen, value:10000, rarity:'mythic', weight:5}
-    ]
-  },
-  figure: {
-    name: 'Figure', emoji: '🎭', price: 199, color: '#5865F2',
-    items: [
-      {name:'Кукла', img:IMG.doll, value:80, rarity:'common', weight:550},
-      {name:'Маска', img:IMG.mask, value:250, rarity:'rare', weight:280},
-      {name:'Корона', img:IMG.crown, value:800, rarity:'epic', weight:130},
-      {name:'Кольцо', img:IMG.ring, value:3000, rarity:'legendary', weight:35},
-      {name:'Алмаз', img:IMG.diamond, value:15000, rarity:'mythic', weight:5}
+      {name:'Лолипоп', img:NFT('lolypop',5), emoji:'🍭', value:50, rarity:'common', weight:500},
+      {name:'Морожко', img:NFT('ice-cream',10), emoji:'🍦', value:200, rarity:'rare', weight:300},
+      {name:'Печенька', img:NFT('cookie',8), emoji:'🍪', value:800, rarity:'epic', weight:150},
+      {name:'Мишка', img:NFT('bear',1), emoji:'🧸', value:3000, rarity:'legendary', weight:45},
+      {name:'Алмаз', img:NFT('diamond',1), emoji:'💎', value:15000, rarity:'mythic', weight:5}
     ]
   },
   bear: {
-    name: 'Bear', emoji: '🐻', price: 149, color: '#FAA61A',
+    name: 'Bear', emoji: '🐻', price: 500, color: '#FAA61A',
     items: [
-      {name:'Мишка', img:IMG.doll, value:60, rarity:'common', weight:560},
-      {name:'Мишка Happy', img:IMG.happyBear, value:200, rarity:'rare', weight:270},
-      {name:'Ангел', img:IMG.angel, value:600, rarity:'epic', weight:130},
-      {name:'Король Лев', img:IMG.lion, value:2500, rarity:'legendary', weight:35},
-      {name:'Панда Голд', img:IMG.panda, value:12000, rarity:'mythic', weight:5}
+      {name:'Печенька', img:NFT('cookie',100), emoji:'🍪', value:300, rarity:'common', weight:550},
+      {name:'Кексик', img:NFT('homemadecake',5), emoji:'🧁', value:800, rarity:'rare', weight:280},
+      {name:'Тортик', img:NFT('homemadecake',50), emoji:'🎂', value:2500, rarity:'epic', weight:130},
+      {name:'Мишка', img:NFT('bear',500), emoji:'🧸', value:8000, rarity:'legendary', weight:35},
+      {name:'Плюш Пеп', img:NFT('plushpepe',100), emoji:'🐸', value:50000, rarity:'mythic', weight:5}
+    ]
+  },
+  figure: {
+    name: 'Figure', emoji: '🎭', price: 750, color: '#5865F2',
+    items: [
+      {name:'Кубик', img:NFT('hexpot',100), emoji:'🎲', value:500, rarity:'common', weight:550},
+      {name:'Звезда', img:NFT('star',50), emoji:'⭐', value:1200, rarity:'rare', weight:280},
+      {name:'Луна', img:NFT('moon',10), emoji:'🌙', value:3500, rarity:'epic', weight:130},
+      {name:'Корона', img:NFT('crown',10), emoji:'👑', value:12000, rarity:'legendary', weight:35},
+      {name:'Астрал', img:NFT('astralshard',5), emoji:'💠', value:80000, rarity:'mythic', weight:5}
     ]
   },
   player: {
-    name: 'Player', emoji: '🎮', price: 199, color: '#EB459E',
+    name: 'Player', emoji: '🎮', price: 900, color: '#EB459E',
     items: [
-      {name:'Джойстик', img:IMG.joy, value:80, rarity:'common', weight:550},
-      {name:'Консоль', img:IMG.gamepad, value:280, rarity:'rare', weight:280},
-      {name:'VR Очки', img:IMG.vr, value:900, rarity:'epic', weight:130},
-      {name:'Неон', img:IMG.sparkles, value:3500, rarity:'legendary', weight:35},
-      {name:'Диск Голд', img:IMG.cd, value:18000, rarity:'mythic', weight:5}
+      {name:'Кружка', img:NFT('hexpot',500), emoji:'☕', value:600, rarity:'common', weight:550},
+      {name:'Обезьяна', img:NFT('jollychimp',50), emoji:'🐵', value:2000, rarity:'rare', weight:280},
+      {name:'Каска', img:NFT('racing-helmet',5), emoji:'🏎️', value:5000, rarity:'epic', weight:130},
+      {name:'Молния', img:NFT('hammer-and-wrench',10), emoji:'⚡', value:18000, rarity:'legendary', weight:35},
+      {name:'Астрал', img:NFT('astralshard',50), emoji:'💠', value:100000, rarity:'mythic', weight:5}
     ]
   },
   mood: {
-    name: 'Mood', emoji: '🎒', price: 249, color: '#57F287',
+    name: 'Mood', emoji: '🎒', price: 1200, color: '#57F287',
     items: [
-      {name:'Рюкзак', img:IMG.backpack, value:100, rarity:'common', weight:550},
-      {name:'Бабочка', img:IMG.butterfly, value:350, rarity:'rare', weight:280},
-      {name:'Ракета', img:IMG.rocket, value:1200, rarity:'epic', weight:130},
-      {name:'Ангел', img:IMG.babyAngel, value:4500, rarity:'legendary', weight:35},
-      {name:'Облако', img:IMG.cloud, value:22000, rarity:'mythic', weight:5}
+      {name:'Кексик', img:NFT('homemadecake',10), emoji:'🧁', value:800, rarity:'common', weight:550},
+      {name:'Желейка', img:NFT('jellybunny',1), emoji:'🍮', value:3000, rarity:'rare', weight:280},
+      {name:'Сакура', img:NFT('sakura',5), emoji:'🌸', value:6000, rarity:'epic', weight:130},
+      {name:'Роза', img:NFT('rose',100), emoji:'🌹', value:20000, rarity:'legendary', weight:35},
+      {name:'Плюш Пеп', img:NFT('plushpepe',500), emoji:'🐸', value:150000, rarity:'mythic', weight:5}
     ]
   },
   skull: {
-    name: 'Skull', emoji: '💀', price: 249, color: '#ED4245',
+    name: 'Skull', emoji: '💀', price: 1500, color: '#ED4245',
     items: [
-      {name:'Кольцо', img:IMG.ring, value:100, rarity:'common', weight:550},
-      {name:'Скелет', img:IMG.skull, value:380, rarity:'rare', weight:280},
-      {name:'Зелье', img:IMG.potion, value:1300, rarity:'epic', weight:130},
-      {name:'Корона', img:IMG.crown, value:5000, rarity:'legendary', weight:35},
-      {name:'Пират', img:IMG.pirate, value:25000, rarity:'mythic', weight:5}
+      {name:'Кольцо', img:NFT('ring',1), emoji:'💍', value:1200, rarity:'common', weight:550},
+      {name:'Клык', img:NFT('voodoo-doll',5), emoji:'🧸', value:4000, rarity:'rare', weight:280},
+      {name:'Зелье', img:NFT('love-potion',50), emoji:'🧪', value:8000, rarity:'epic', weight:130},
+      {name:'Череп', img:NFT('skull',1), emoji:'💀', value:25000, rarity:'legendary', weight:35},
+      {name:'Пират', img:NFT('pirate',5), emoji:'🏴‍☠️', value:200000, rarity:'mythic', weight:5}
     ]
   },
   lamp: {
-    name: 'Lamp', emoji: '🪔', price: 299, color: '#FEE75C',
+    name: 'Lamp', emoji: '🪔', price: 1750, color: '#FEE75C',
     items: [
-      {name:'Лампа', img:IMG.lamp, value:120, rarity:'common', weight:550},
-      {name:'Джинн', img:IMG.genie, value:450, rarity:'rare', weight:280},
-      {name:'Часы', img:IMG.watch, value:1500, rarity:'epic', weight:130},
-      {name:'Банка', img:IMG.jar, value:6000, rarity:'legendary', weight:35},
-      {name:'Джинн Кинг', img:IMG.genieKing, value:30000, rarity:'mythic', weight:5}
+      {name:'Свеча', img:NFT('candle',5), emoji:'🕯️', value:1500, rarity:'common', weight:550},
+      {name:'Глинтвейн', img:NFT('spicedwine',10), emoji:'🍷', value:5000, rarity:'rare', weight:280},
+      {name:'Шар', img:NFT('crystal-ball',5), emoji:'🔮', value:10000, rarity:'epic', weight:130},
+      {name:'Часы', img:NFT('gold-watch',5), emoji:'⌚', value:30000, rarity:'legendary', weight:35},
+      {name:'Джинн', img:NFT('genie',1), emoji:'🧞', value:300000, rarity:'mythic', weight:5}
     ]
   },
   perfume: {
-    name: 'Perfume', emoji: '💐', price: 399, color: '#9B59B6',
+    name: 'Perfume', emoji: '💐', price: 2000, color: '#9B59B6',
     items: [
-      {name:'Флакон', img:IMG.vial, value:150, rarity:'common', weight:550},
-      {name:'Коробка', img:IMG.box, value:600, rarity:'rare', weight:280},
-      {name:'UFC', img:IMG.ufc, value:2000, rarity:'epic', weight:130},
-      {name:'Радуга', img:IMG.rainbow, value:8000, rarity:'legendary', weight:35},
-      {name:'Ледяные', img:IMG.ice, value:40000, rarity:'mythic', weight:5}
+      {name:'Кофе', img:NFT('coffee',5), emoji:'☕', value:2000, rarity:'common', weight:550},
+      {name:'Вино', img:NFT('spicedwine',50), emoji:'🍷', value:6000, rarity:'rare', weight:280},
+      {name:'Парфюм', img:NFT('perfume',1), emoji:'💐', value:15000, rarity:'epic', weight:130},
+      {name:'Брилл', img:NFT('diamond',100), emoji:'💎', value:50000, rarity:'legendary', weight:35},
+      {name:'Пеп Голд', img:NFT('plushpepe',1000), emoji:'🐸', value:500000, rarity:'mythic', weight:5}
     ]
   }
 };
 
 var PROMOS = {
-  'BETA10000': {reward: 10000, used: false},
-  'BETA50000': {reward: 50000, used: false}
+  'BETA10000': {reward: 10000},
+  'BETA50000': {reward: 50000}
 };
 
 var RARITY_COLORS = {common:'#8b95a5', rare:'#3b82f6', epic:'#a371f7', legendary:'#ffcc00', mythic:'#ef4444'};
@@ -450,9 +416,6 @@ function addStars() {
   showToast('+' + num + ' ⭐');
 }
 
-// ==========================================
-// РОУТЕР
-// ==========================================
 function showPage(name) {
   document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
   document.getElementById('page-' + name).classList.add('active');
@@ -467,14 +430,24 @@ function showPage(name) {
 // LIVE STRIP
 // ==========================================
 function initLiveStrip() {
-  var imgs = [IMG.bear,IMG.star,IMG.gift,IMG.lamp,IMG.pen,IMG.doll,IMG.mask,IMG.crown,IMG.ring,IMG.diamond,IMG.lion,IMG.panda,IMG.gamepad,IMG.vr,IMG.sparkles,IMG.cd,IMG.backpack,IMG.butterfly,IMG.rocket,IMG.babyAngel,IMG.cloud,IMG.skull,IMG.potion,IMG.pirate,IMG.genie,IMG.watch,IMG.jar,IMG.genieKing,IMG.ufc,IMG.rainbow,IMG.ice];
-  var doubled = imgs.concat(imgs);
+  var items = [];
+  Object.keys(CASES).forEach(function(cid){
+    CASES[cid].items.forEach(function(it){ items.push(it); });
+  });
+  var doubled = items.concat(items);
   var el = document.getElementById('live-items');
   var html = '';
-  doubled.forEach(function(src){
-    html += '<div class="live-item"><img src="' + src + '" alt=""></div>';
+  doubled.forEach(function(it){
+    html += '<div class="live-item">' + renderItemImg(it, 40) + '</div>';
   });
   el.innerHTML = html;
+}
+
+function renderItemImg(it, size){
+  if (it.img) {
+    return '<img class="it-img" src="' + it.img + '" style="width:' + size + 'px;height:' + size + 'px" alt="' + it.name + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"><span class="it-emoji-fallback" style="display:none;font-size:' + Math.round(size*0.75) + 'px">' + (it.emoji || '🎁') + '</span>';
+  }
+  return '<span class="it-emoji-fallback" style="display:flex;font-size:' + Math.round(size*0.75) + 'px">' + (it.emoji || '🎁') + '</span>';
 }
 
 // ==========================================
@@ -487,8 +460,12 @@ function renderCases() {
     var c = CASES[cid];
     var priceText = c.price === 0 ? 'Бесплатно' : '⭐ ' + c.price;
     var priceClass = c.price === 0 ? 'free' : '';
+    var topItem = c.items[c.items.length - 1];
+    var preview = topItem && topItem.img
+      ? '<img class="case-card-img" src="' + topItem.img + '" alt="">'
+      : '<div class="case-card-emoji">' + (topItem ? topItem.emoji : c.emoji) + '</div>';
     html += '<div class="case-card" style="--case-color:' + c.color + '" onclick="goToCase(\'' + cid + '\')">' +
-      '<div class="case-card-emoji">' + c.emoji + '</div>' +
+      preview +
       '<div class="case-card-name">' + c.name + '</div>' +
       '<div class="case-card-price ' + priceClass + '">' + priceText + '</div>' +
     '</div>';
@@ -518,7 +495,7 @@ function renderItemsGrid(c) {
   c.items.forEach(function(it){
     var color = RARITY_COLORS[it.rarity] || '#888';
     html += '<div class="item-card" style="border-color:' + color + '40">' +
-      '<img class="it-img" src="' + it.img + '" alt="">' +
+      renderItemImg(it, 60) +
       '<div class="it-name">' + it.name + '</div>' +
       '<div class="it-value" style="color:' + color + '">' + it.value + ' ⭐</div>' +
     '</div>';
@@ -532,7 +509,7 @@ function renderRoulettePlaceholder(c) {
   for (var i = 0; i < 30; i++) {
     var it = c.items[i % c.items.length];
     html += '<div class="roulette-item rarity-' + it.rarity + '">' +
-      '<img class="it-img" src="' + it.img + '" alt="">' +
+      renderItemImg(it, 70) +
       '<span class="it-name">' + it.name + '</span>' +
     '</div>';
   }
@@ -584,7 +561,7 @@ function openCase() {
   var html = '';
   rollItems.forEach(function(it){
     html += '<div class="roulette-item rarity-' + it.rarity + '">' +
-      '<img class="it-img" src="' + it.img + '" alt="">' +
+      renderItemImg(it, 70) +
       '<span class="it-name">' + it.name + '</span>' +
     '</div>';
   });
@@ -611,7 +588,7 @@ function onRollComplete(item, c) {
   isRolling = false;
   var invItem = {
     id: Date.now() + '_' + Math.random().toString(36).slice(2,8),
-    name: item.name, img: item.img, value: item.value,
+    name: item.name, img: item.img, emoji: item.emoji, value: item.value,
     rarity: item.rarity, caseId: currentCaseId, date: Date.now()
   };
   state.inventory.unshift(invItem);
@@ -626,8 +603,11 @@ function onRollComplete(item, c) {
 function showWinModal(item) {
   var color = RARITY_COLORS[item.rarity] || '#888';
   var mc = document.getElementById('modal-content');
+  var preview = item.img
+    ? '<img class="modal-img" src="' + item.img + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-flex\';"><span class="modal-emoji-fallback" style="display:none;color:' + color + '">' + (item.emoji || '🎁') + '</span>'
+    : '<span class="modal-emoji-fallback" style="color:' + color + '">' + (item.emoji || '🎁') + '</span>';
   mc.innerHTML =
-    '<img class="modal-img" src="' + item.img + '" alt="">' +
+    preview +
     '<div class="modal-title">' + item.name + '</div>' +
     '<div class="modal-rarity" style="color:' + color + '">' + (RARITY_NAMES[item.rarity] || item.rarity) + '</div>' +
     '<div class="modal-value">' + item.value + ' ⭐</div>' +
@@ -693,7 +673,7 @@ function renderInventory() {
     var color = RARITY_COLORS[it.rarity] || '#888';
     var sellPrice = Math.floor(it.value * 0.7);
     html += '<div class="inv-card" style="--rarity-color:' + color + '">' +
-      '<img class="it-img" src="' + it.img + '" alt="">' +
+      renderItemImg(it, 70) +
       '<div class="it-name">' + it.name + '</div>' +
       '<div class="it-rarity">' + (RARITY_NAMES[it.rarity] || it.rarity) + '</div>' +
       '<div class="it-value">' + it.value + ' ⭐</div>' +
@@ -744,8 +724,7 @@ function renderUpgrade() {
   var s2 = document.getElementById('upgrade-slot2');
   if (upgradeSlot1) {
     s1.classList.add('filled');
-    s1.innerHTML = '<div class="slot-label">Твой</div>' +
-      '<img class="it-img" src="' + upgradeSlot1.img + '" alt="">' +
+    s1.innerHTML = '<div class="slot-label">Твой</div>' + renderItemImg(upgradeSlot1, 70) +
       '<div class="it-name">' + upgradeSlot1.name + '</div>' +
       '<div class="it-value">' + upgradeSlot1.value + ' ⭐</div>';
   } else {
@@ -754,8 +733,7 @@ function renderUpgrade() {
   }
   if (upgradeSlot2) {
     s2.classList.add('filled');
-    s2.innerHTML = '<div class="slot-label">Цель</div>' +
-      '<img class="it-img" src="' + upgradeSlot2.img + '" alt="">' +
+    s2.innerHTML = '<div class="slot-label">Цель</div>' + renderItemImg(upgradeSlot2, 70) +
       '<div class="it-name">' + upgradeSlot2.name + '</div>' +
       '<div class="it-value">' + upgradeSlot2.value + ' ⭐</div>';
   } else {
@@ -792,7 +770,7 @@ function pickUpgradeItem(slot) {
   inv.forEach(function(it){
     var color = RARITY_COLORS[it.rarity] || '#888';
     html += '<div class="picker-item" style="border-color:' + color + '60" onclick="selectUpgradeItem(\'' + it.id + '\')">' +
-      '<img class="it-img" src="' + it.img + '" alt="">' +
+      renderItemImg(it, 56) +
       '<div class="it-name">' + it.name + '</div>' +
       '<div class="it-value">' + it.value + ' ⭐</div>' +
     '</div>';
@@ -806,11 +784,8 @@ function pickUpgradeItem(slot) {
 function selectUpgradeItem(id) {
   var it = state.inventory.find(function(x){ return x.id === id; });
   if (!it) return;
-  if (pickingForSlot === 1) {
-    upgradeSlot1 = it;
-  } else {
-    upgradeSlot2 = it;
-  }
+  if (pickingForSlot === 1) upgradeSlot1 = it;
+  else upgradeSlot2 = it;
   closeModal();
   renderUpgrade();
 }
@@ -833,7 +808,7 @@ function doUpgrade() {
   if (win) {
     var newItem = {
       id: Date.now() + '_' + Math.random().toString(36).slice(2,8),
-      name: it2.name, img: it2.img, value: it2.value,
+      name: it2.name, img: it2.img, emoji: it2.emoji, value: it2.value,
       rarity: it2.rarity, caseId: it2.caseId, date: Date.now()
     };
     state.inventory.unshift(newItem);
@@ -854,7 +829,7 @@ function playUpgradeModal(win, it1, it2) {
   var result = win ? it2 : it1;
   var color = RARITY_COLORS[result.rarity] || '#888';
   mc.innerHTML =
-    '<img class="modal-img" src="' + result.img + '" alt="">' +
+    renderItemImg(result, 100) +
     '<div class="modal-title">' + (win ? '🎉 Успех!' : '💥 Провал') + '</div>' +
     '<div class="modal-rarity" style="color:' + color + '">' + result.name + '</div>' +
     '<div style="font-size:14px;color:var(--text-dim);margin-bottom:20px;line-height:1.5;">' +
